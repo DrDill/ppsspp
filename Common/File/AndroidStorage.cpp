@@ -252,4 +252,14 @@ bool Android_IsExternalStoragePreservedLegacy() {
 	return env->CallBooleanMethod(g_nativeActivity, isExternalStoragePreservedLegacy);
 }
 
+const char *Android_ErrorToString(ContentError error) {
+	switch (error) {
+	case ContentError::SUCCESS: return "SUCCESS";
+	case ContentError::OTHER: return "OTHER";
+	case ContentError::NOT_FOUND: return "NOT_FOUND";
+	case ContentError::DISK_FULL: return "DISK_FULL";
+	default: return "(UNKNOWN)";
+	}
+}
+
 #endif
